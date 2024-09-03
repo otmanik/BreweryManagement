@@ -1,4 +1,5 @@
-﻿using BreweryManagement.Application.Features.Beers.Queries;
+﻿using BreweryManagement.Application.Features.Beers.Commands;
+using BreweryManagement.Application.Features.Beers.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,6 +21,13 @@ namespace BreweryManagement.API.Controllers
 		{
 			var query = new GetBeersByBreweryQuery { BreweryId = breweryId };
 			var result = await _mediator.Send(query);
+			return Ok(result);
+		}
+
+		[HttpPost]
+		public async Task<ActionResult<int>> CreateBeer(CreateBeerCommand command)
+		{
+			var result = await _mediator.Send(command);
 			return Ok(result);
 		}
 	}

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using MediatR;
+using FluentValidation;
 
 
 namespace BreweryManagement.Application
@@ -11,6 +12,8 @@ namespace BreweryManagement.Application
 		{
 			services.AddAutoMapper(Assembly.GetExecutingAssembly());
 			services.AddMediatR(Assembly.GetExecutingAssembly());
+			services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+
 			return services;
 		}
 	}

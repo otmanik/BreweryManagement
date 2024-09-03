@@ -1,3 +1,4 @@
+using BreweryManagement.API.Middleware;
 using BreweryManagement.Application;
 using BreweryManagement.Infrastructure;
 
@@ -20,6 +21,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.UseAuthorization();
 

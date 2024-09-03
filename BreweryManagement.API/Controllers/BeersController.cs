@@ -30,5 +30,20 @@ namespace BreweryManagement.API.Controllers
 			var result = await _mediator.Send(command);
 			return Ok(result);
 		}
+
+		[HttpDelete("{id}")]
+		public async Task<ActionResult> DeleteBeer(int id)
+		{
+			var result = await _mediator.Send(new DeleteBeerCommand { Id = id });
+
+			if (result)
+			{
+				return NoContent();
+			}
+			else
+			{
+				return NotFound();
+			}
+		}
 	}
 }

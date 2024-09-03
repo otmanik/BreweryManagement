@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using AutoMapper;
 using BreweryManagement.Application.Common.Interfaces;
+using BreweryManagement.Domain.Entities;
 
 namespace BreweryManagement.Application.Features.Beers.Queries
 {
@@ -33,5 +34,12 @@ namespace BreweryManagement.Application.Features.Beers.Queries
 		public string Name { get; set; }
 		public decimal AlcoholContent { get; set; }
 		public decimal Price { get; set; }
+	}
+	public class MappingProfile : Profile
+	{
+		public MappingProfile()
+		{
+			CreateMap<Beer, BeerDto>();
+		}
 	}
 }

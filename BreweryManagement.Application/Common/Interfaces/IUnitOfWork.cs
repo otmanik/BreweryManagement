@@ -11,6 +11,7 @@ namespace BreweryManagement.Application.Common.Interfaces
 		IBreweryRepository Breweries { get; }
 		IBeerRepository Beers { get; }
 		IWholesalerRepository Wholesalers { get; }
+		IWholesalerStockRepository WholesalerStocks { get; }
 		Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 	}
 }

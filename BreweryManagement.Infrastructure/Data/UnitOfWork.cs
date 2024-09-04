@@ -13,11 +13,13 @@ namespace BreweryManagement.Infrastructure.Data
 			Breweries = new BreweryRepository(_context);
 			Beers = new BeerRepository(_context);
 			Wholesalers = new WholesalerRepository(_context);
+			WholesalerStocks = new WholesalerStockRepository(_context);
 		}
 
 		public IBreweryRepository Breweries { get; private set; }
 		public IBeerRepository Beers { get; private set; }
 		public IWholesalerRepository Wholesalers { get; private set; }
+		public IWholesalerStockRepository WholesalerStocks { get; private set; }
 
 		public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
 		{
